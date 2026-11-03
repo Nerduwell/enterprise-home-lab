@@ -69,4 +69,24 @@ Proxmox VE has been successfully installed on all three Dell OptiPlex systems. E
 
 The next milestone is to verify inter-node connectivity, configure hostname resolution, and establish the Proxmox cluster.
 
-## Career
+## Career Development
+
+This homelab serves as a practical learning environment and technical portfolio, demonstrating skills relevant to:
+
+Linux Systems Administrator
+
+Systems Engineer
+
+Infrastructure Engineer
+
+Cloud Engineer
+
+Cloud Security Engineer
+
+Cybersecurity Engineer
+
+The goal is to build, troubleshoot, secure, automate, and document an increasingly capable infrastructure environment while applying concepts used in professional IT operations.
+
+Project Status: Active Development
+
+Primary Focus: Linux Engineering | Networking | Virtualization | Cloud Security
