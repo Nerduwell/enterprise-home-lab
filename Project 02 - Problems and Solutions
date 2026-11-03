@@ -1,0 +1,37 @@
+# Project 02 — Troubleshooting Proxmox Network Connectivity
+
+## Objective
+Diagnose and resolve a networking issue affecting a Proxmox VE host.
+
+## Problem
+After installation, the host experienced a name-resolution failure. An attempt to ping an external IP address also returned an unreachable error.
+
+## Diagnostic Approach
+Investigated the network configuration to determine whether the problem involved DNS, IP addressing, routing, or physical connectivity.
+
+### Commands Used
+
+```bash
+ip -br addr
+ip route
+cat /etc/network/interfaces
+ping -c 4 1.1.1.1
+```
+
+## Resolution
+Corrected the Proxmox management network configuration, including the IP addressing settings, and restored connectivity.
+
+## Validation
+Confirmed that the Proxmox host was accessible remotely from another computer on the home network.
+
+## Lessons Learned
+- DNS resolution depends on underlying IP connectivity.
+- A failed ping to an IP address helps distinguish connectivity issues from DNS-only failures.
+- Linux network bridges provide management and virtual machine connectivity.
+- Correct IP addressing and routing are essential for reaching external networks.
+
+## Future Improvements
+- Document the exact root cause using diagnostic output.
+- Verify external connectivity and DNS separately.
+- Capture network traffic using tcpdump.
+- Create a repeatable network troubleshooting runbook.
