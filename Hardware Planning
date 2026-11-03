@@ -1,0 +1,177 @@
+# Project 00 — Homelab Hardware Planning & Infrastructure Design
+
+## 1. Project Overview
+
+Hello !! Welcome to my homelab project blueprint. The idea of this project came from my I.T/Cybersecurity background and enjoying it as a hobby.
+
+I designed and assembled a three-node homelab to develop practical skills in Linux system administration, networking, virtualization, cybersecurity, and infrastructure automation.
+
+My primary objective is to gain hands-on experience with technologies used in professional IT environments while building a platform that can also host personal services.
+
+The infrastructure is designed to support:
+
+- Linux administration and RHCSA training
+- Network configuration, troubleshooting, and packet analysis
+- Virtualization using Proxmox VE
+- Cybersecurity monitoring and network segmentation
+- Bash scripting and infrastructure automation
+- Dedicated game servers
+- Self-hosted media and cloud services
+
+A major consideration during the planning process was balancing hardware cost, resource requirements, power consumption, expandability, and the ability to operate the environment continuously.
+
+## 2. Hardware Inventory
+
+| Component | Selection | Quantity |
+|---|---|---|
+| Physical servers | Dell OptiPlex 7050 Micro | 3 |
+| Processors | Intel Core i7 | 3 |
+| Memory | 16 GB RAM per node | 48 GB total |
+| Internal storage | 512 GB M.2 SSD per node | 1.5 TB raw |
+| Virtualization | Proxmox VE | 3 installations |
+| Rack | GeekPi Rackmate T1 | 1 |
+| Network switch | NETGEAR MS308E | Planned / verify purchase status |
+| External storage | TerraMaster D4-320 | Planned storage platform |
+
+## 3. Why I Selected Dell OptiPlex Micro Systems
+
+I chose refurbished small-form-factor business computers as an alternative to purchasing traditional enterprise rack servers.
+
+The OptiPlex 7050 Micro provides a compact platform capable of running Linux and virtualization workloads without requiring a full-size server rack.
+
+### Selection considerations
+
+**Cost efficiency:** Refurbished enterprise desktop hardware provides an accessible entry point into infrastructure engineering.
+
+**Physical footprint:** Three Micro systems can fit into a compact rack, making them practical for a home environment.
+
+**Virtualization support:** The Intel processors support hardware-assisted virtualization, enabling the deployment of multiple virtual machines.
+
+**Power and cooling:** Compact desktop systems offer a potentially lower-power alternative to traditional enterprise rack servers, although actual consumption must be measured.
+
+**Learning opportunities:** Using three independent physical systems allows me to explore cluster management, networking, resource allocation, and host-level troubleshooting.
+
+## 4. Why I Upgraded to 16 GB RAM Per Node
+
+The original systems were equipped with 8 GB RAM each.
+
+I upgraded each node to 16 GB to provide additional capacity for virtualization and simultaneous Linux workloads.
+
+### Capacity comparison
+
+| Configuration | Per Node | Three Nodes |
+|---|---|---|
+| Original memory | 8 GB | 24 GB |
+| Upgraded memory | 16 GB | 48 GB |
+| Increase | +8 GB | +24 GB |
+
+The upgrade doubled the total available physical memory.
+
+### Technical justification
+
+Virtual machines require dedicated or dynamically allocated memory. With only 8 GB per host, the number and size of simultaneous workloads would be more restricted.
+
+Upgrading to 16 GB allows greater flexibility when running Proxmox alongside Linux virtual machines, networking services, and lightweight security tools.
+
+I selected this capacity as a practical starting point rather than immediately maximizing the memory in every system.
+
+### Tradeoffs
+
+- Proxmox itself consumes system memory.
+- Available RAM is distributed across three independent hosts, not combined into a single 48 GB memory pool.
+- Memory-intensive platforms may require additional upgrades or workload consolidation.
+- Future upgrades should be driven by measured utilization rather than assumptions.
+
+## 5. Why I Selected 512 GB M.2 SSDs
+
+Each OptiPlex uses a 512 GB M.2 SSD as its primary storage device.
+
+I selected SSD storage to support operating system installation, virtual machine disks, and responsive administrative operations.
+
+### Technical justification
+
+**Performance:** SSDs provide substantially lower access latency than mechanical hard drives.
+
+**Virtualization:** Multiple virtual machines can generate simultaneous storage operations, making SSD performance beneficial.
+
+**Capacity:** 512 GB provides a reasonable starting point for the Proxmox operating system, VM templates, ISO images, and a limited number of virtual machine disks.
+
+**Cost:** This capacity allows me to prioritize essential infrastructure components while expanding storage separately.
+
+### Storage limitations
+
+The three SSDs provide approximately 1.5 TB of combined raw capacity, but that storage is distributed across the hosts.
+
+It is not automatically shared, redundant, or available as a single storage pool.
+
+I plan to evaluate storage utilization and backup requirements as additional workloads are deployed.
+
+## 6. Why I Selected a Managed Network Switch
+
+I identified the NETGEAR MS308E as a suitable managed switch for my homelab.
+
+My objective was to move beyond basic network connectivity and gain practical experience with network configuration and segmentation.
+
+### Technical considerations
+
+**VLAN support:** A managed switch allows me to study IEEE 802.1Q VLAN tagging and logically separate traffic.
+
+**Network segmentation:** I can design distinct networks for infrastructure management, cybersecurity testing, and personal services.
+
+**Troubleshooting:** Managed switching features provide additional opportunities to investigate link configuration, traffic behavior, and network performance.
+
+**2.5 GbE connectivity:** The switch provides multi-gigabit Ethernet ports for compatible devices, although actual throughput will be limited by each device's network interface and the rest of the connection path.
+
+### Why not use an unmanaged switch?
+
+An unmanaged switch would provide basic connectivity but would not offer the same opportunities to configure VLAN membership and other managed networking features.
+
+The managed switch therefore supports both the operational requirements of my homelab and my networking education.
+
+## 7. Why I Chose Proxmox VE
+
+I selected Proxmox VE as the primary virtualization platform because it provides a Linux-based environment for administering virtual machines and containers.
+
+The platform allows me to develop experience with:
+
+- Type 1 virtualization
+- Linux network bridges
+- Virtual machine resource allocation
+- Cluster administration
+- Storage configuration
+- Backup and recovery
+- Command-line system administration
+
+Deploying Proxmox across three physical hosts also creates opportunities to explore quorum, cluster networking, and migration requirements.
+
+## 8. Design Tradeoffs and Future Improvements
+
+My current infrastructure prioritizes learning flexibility and affordability over enterprise-grade redundancy.
+
+Current limitations include:
+
+- 16 GB memory per node
+- One primary internal SSD per node
+- No shared storage configured
+- Limited physical network interfaces
+- No automatic high availability merely from installing Proxmox
+
+Potential future improvements include additional memory, dedicated backup storage, improved network segmentation, and power protection.
+
+I will evaluate these upgrades based on observed performance, reliability requirements, and cost.
+
+## 9. Project Outcome
+
+I successfully installed Proxmox VE on all three Dell OptiPlex 7050 Micro systems and verified remote access to their management interfaces.
+
+This project established the hardware foundation for future Linux administration, networking, cybersecurity, and self-hosting projects.
+
+## 10. Skills Demonstrated
+
+- Hardware evaluation and selection
+- Infrastructure capacity planning
+- Virtualization planning
+- Storage and networking fundamentals
+- Cost-conscious technical decision-making
+- Infrastructure documentation
+- Understanding of technical tradeoffs
