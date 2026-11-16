@@ -42,8 +42,8 @@ Hardware selections and upgrades are documented to explain the technical require
 | 00 | Hardware Research, Selection & Upgrades | Completed |
 | 01 | Proxmox VE Installation on Three Nodes | Completed |
 | 02 | Management Network Configuration & Troubleshooting | Completed |
-| 03 | Proxmox Cluster Configuration | Planned |
-| 04 | RHEL Virtual Machines & Linux Administration | Planned |
+| 03 | Proxmox Cluster Configuration | Completed |
+| 04 | RHEL Virtual Machines & Linux Administration | Completed |
 | 05 | Networking, VLANs & Packet Analysis | Planned |
 | 06 | Cybersecurity Monitoring & System Hardening | Planned |
 | 07 | Bash Scripting & Infrastructure Automation | Planned |
